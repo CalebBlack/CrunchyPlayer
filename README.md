@@ -5,8 +5,6 @@ Valid Props:
 - autoplay
 - doAutoplay (function with a URL return)
 - autostart
-- width (integer)
-- height (integer)
 
 Example Usage:
 ```
@@ -16,7 +14,7 @@ class App extends Component {
   render() {
     return (
       <div id="app">
-        <CrunchyPlayer autoplay width="500" source="RAW_VIDEO_URL"/>
+        <CrunchyPlayer className='test' doAutoplay={()=>{console.log('a');return 'NEXT_VIDEO_URL'}} autostart source="VIDEO_URL"/>
       </div>
     );
   }
