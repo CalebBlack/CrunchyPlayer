@@ -4,6 +4,7 @@ import "./crunchyplayer.css";
 class CrunchyPlayer extends React.Component {
   constructor(){
     super();
+    this.props = {};
     this.renderControls = this.renderControls.bind(this);
     this.state = {playing: false};
     this.play = this.play.bind(this);
@@ -52,7 +53,7 @@ class CrunchyPlayer extends React.Component {
   render(){
     return (
       <div className='crunchyplayer'>
-        <video onClick={this.toggle} style={this.getDimensionsStyling(this.props.width,this.props.height)} ref={(ref)=>{this.player = ref}}>
+        <video autoPlay={this.props.autoplay || false} onClick={this.toggle} style={this.getDimensionsStyling(this.props.width,this.props.height)} ref={(ref)=>{this.player = ref}}>
           <source src={this.props.source}/>
         </video>
         {this.renderControls()}
@@ -64,8 +65,8 @@ class CrunchyPlayer extends React.Component {
       <div className='controls'>
         <div className='playglow'>
         {!this.state.playing ?
-          <div className='play' onClick={this.play}/> :
-          <div className='pause' onClick={this.pause}/>}
+          <div id='a' className='play' onClick={this.play}/> :
+          <div id='b' className='pause' onClick={this.pause}/>}
         </div>
         <div className='progressbar' onClick={this.seek} ref={(progressbar)=>{this.progressbar = progressbar}}>
           <div className='timebar' ref={(timebar)=>{this.timebar = timebar}}/>
