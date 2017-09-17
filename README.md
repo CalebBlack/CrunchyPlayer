@@ -3,7 +3,8 @@ This video player was made with React.JS with the HTML5 video player to support 
 
 
 Example Usage:
-```import CrunchyPlayer from './crunchyplayer.js';
+```
+import CrunchyPlayer from './crunchyplayer.js';
 
 class App extends Component {
   render() {
