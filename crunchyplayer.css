@@ -63,7 +63,7 @@ div.crunchyplayer > div.controls div.progressbar {
 }
 
 div.crunchyplayer > div.controls div.progressbar:hover > div.timebar {
-  opacity: 0.5;
+  opacity: 0.7;
 }
 div.crunchyplayer > div.controls div.progressbar:active > div.timebar {
   opacity: 1;
@@ -72,6 +72,7 @@ div.crunchyplayer > div.controls div.progressbar > div.timebar:hover {
   opacity: 1;
 }
 div.crunchyplayer > div.controls div.progressbar > div.timebar {
+  opacity: 0.3;
   transition: opacity 0.2s ease;
   position: absolute;
   left: -5px;
