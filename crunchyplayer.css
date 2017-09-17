@@ -61,7 +61,18 @@ div.crunchyplayer > div.controls div.progressbar {
   border: 5px solid orange;
   border-radius: 3px;
 }
+
+div.crunchyplayer > div.controls div.progressbar:hover > div.timebar {
+  opacity: 0.5;
+}
+div.crunchyplayer > div.controls div.progressbar:active > div.timebar {
+  opacity: 1;
+}
+div.crunchyplayer > div.controls div.progressbar > div.timebar:hover {
+  opacity: 1;
+}
 div.crunchyplayer > div.controls div.progressbar > div.timebar {
+  transition: opacity 0.2s ease;
   position: absolute;
   left: -5px;
   top: -8px;
@@ -80,6 +91,9 @@ div.crunchyplayer > div.controls p.time {
   margin-left: 5px;
   color: white;
 }
+div.crunchyplayer > div.controls p.time > span.timestamp {
+  transition: opacity 0.1s linear;
+}
 div.crunchyplayer > div.controls p.time > span {
-  margin: 0 2px;
+  margin: 0 5px;
 }
