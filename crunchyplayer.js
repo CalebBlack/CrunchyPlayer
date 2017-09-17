@@ -26,7 +26,6 @@ class CrunchyPlayer extends React.Component {
     if (height) {
       output.height = height+'px';
     }
-    console.log(output);
     return output;
   }
   play(){
@@ -36,7 +35,6 @@ class CrunchyPlayer extends React.Component {
     this.player.pause();
   }
   toggle(){
-    console.log(this.state);
     if (this.state && this.state.playing !== undefined) {
       if (this.state.playing === true) {
         this.pause();
