@@ -10,7 +10,7 @@ class App extends Component {
   render() {
     return (
       <div id="app">
-        <CrunchyPlayer width="500" source="RAW_VIDEO_URL"/>
+        <CrunchyPlayer autoplay width="500" source="RAW_VIDEO_URL"/>
       </div>
     );
   }
