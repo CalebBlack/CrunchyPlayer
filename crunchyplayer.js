@@ -112,8 +112,7 @@ class CrunchyPlayer extends React.Component {
   onTimeUpdate(event){
     this.updateTimeStamp();
     if (this.progressbar && this.timebar && this.length && this.time) {
-      var barOffset = Math.round(this.widthPerSecond * this.time) - 5+"px";
-      this.timebar.style.left = barOffset;
+      this.timebar.style.left = Math.round(this.time/this.length* 100) + '%';
     }
   }
   componentDidMount(){
