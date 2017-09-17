@@ -109,7 +109,6 @@ class CrunchyPlayer extends React.Component {
     //this.timebar.style.transition = 'left '+Math.ceil(this.length/(this.progressbar.offsetWidth - 5) * 10)/10+'s linear';
   }
   onFinish(){
-    console.log(this.props,this.state);
     if ((this.state.autoplay === true || this.props.autoplay === true) && this.props.doAutoplay) {
       var url = this.props.doAutoplay();
       if (url && typeof url === 'string') {
@@ -118,8 +117,7 @@ class CrunchyPlayer extends React.Component {
     }
   }
   loadVideo(url){
-    console.log(url);
-    if (url && typeof url === 'string' && this.source && this.source.attr("src") !== url && this.player) {
+    if (url && typeof url === 'string' && this.source && this.source.src !== url && this.player) {
       this.source.setAttribute('src',url);
       this.player.load();
     }
