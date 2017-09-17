@@ -89,6 +89,7 @@ class CrunchyPlayer extends React.Component {
     }
     this.timebar.style.left = Math.round(position* 100) + '%';
     this.player.currentTime = this.length * position;
+    this.updateTimeStamp();
   }
   onMetaData(){
     this.updateTimeStamp();
