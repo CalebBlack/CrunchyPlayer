@@ -3,6 +3,8 @@ This video player was made with React.JS with the HTML5 video player to support 
 
 Valid Props:
 - autoplay
+- doAutoplay (function with a URL return)
+- autostart
 - width (integer)
 - height (integer)
 
