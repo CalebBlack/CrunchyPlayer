@@ -6,7 +6,7 @@ class CrunchyPlayer extends React.Component {
     super();
     this.props = {};
     this.renderControls = this.renderControls.bind(this);
-    this.state = {playing: false};
+    this.state = {playing: false,autoplay: false};
     this.play = this.play.bind(this);
     this.pause = this.pause.bind(this);
     this.onPlay = this.onPlay.bind(this);
@@ -18,12 +18,24 @@ class CrunchyPlayer extends React.Component {
     this.updateLengthStamp = this.updateLengthStamp.bind(this);
     this.seek = this.seek.bind(this);
     this.toggle = this.toggle.bind(this);
+    this.setAutoplay = this.setAutoplay.bind(this);
+    this.toggleAutoplay = this.toggleAutoplay.bind(this);
+    this.onFinish = this.onFinish.bind(this);
+    this.loadVideo = this.loadVideo.bind(this);
   }
   play(){
     this.player.play();
   }
   pause(){
     this.player.pause();
+  }
+  setAutoplay(state){
+    if (typeof state === 'boolean') {
+      this.setState(Object.assign({},this.state,{autoplay:state}));
+    }
+  }
+  toggleAutoplay(){
+    this.setAutoplay(!this.state.autoplay);
   }
   toggle(){
     if (this.state && this.state.playing !== undefined) {
@@ -43,10 +55,11 @@ class CrunchyPlayer extends React.Component {
   render(){
     return (
       <div id={this.props.id ? this.props.id : null} className={'crunchyplayer'+(this.props.className ? " "+this.props.className : "")}>
-        <video autoPlay={this.props.autoplay || false} onClick={this.toggle} ref={(ref)=>{this.player = ref}}>
-          <source src={this.props.source}/>
+        <video autoPlay={this.props.autostart || false} onClick={this.toggle} ref={(ref)=>{this.player = ref}}>
+          <source ref={(source)=>{this.source = source;}} src={this.props.source}/>
         </video>
         {this.renderControls()}
+        <div className='controlsspacing'/>
       </div>
       );
   }
@@ -66,6 +79,14 @@ class CrunchyPlayer extends React.Component {
           /
           <span className='lengthstamp' ref={(lengthstamp)=>{this.lengthstamp = lengthstamp}}>--:--</span>
         </p>
+        <div className='shadow'>
+          <div onClick={this.toggleAutoplay} className={'autoplay'+(this.state.autoplay === true || this.props.autoplay === true ? ' active' : "")}>
+            <div className='inner'/>
+            <div className='square'/>
+            <div className='square2'/>
+            <div className='triangle'/>
+          </div>
+        </div>
       </div>
     );
   }
@@ -86,6 +107,20 @@ class CrunchyPlayer extends React.Component {
     this.updateLengthStamp();
     this.widthPerSecond = (this.progressbar.offsetWidth - 5)/this.length;
     //this.timebar.style.transition = 'left '+Math.ceil(this.length/(this.progressbar.offsetWidth - 5) * 10)/10+'s linear';
+  }
+  onFinish(){
+    if (this.state.autoplay === true && this.props.doAutoplay) {
+      var url = this.props.doAutoplay();
+      if (url && typeof url === 'string') {
+        this.loadVideo(url);
+      }
+    }
+  }
+  loadVideo(url){
+    if (url && typeof url === 'string' && this.source && this.player) {
+      this.source.setAttribute('src',url);
+      this.player.load();
+    }
   }
   updateTimeStamp(){
     this.time = this.player.currentTime;
@@ -112,6 +147,7 @@ class CrunchyPlayer extends React.Component {
     this.player.addEventListener('pause',this.onPause);
     this.player.addEventListener('timeupdate',this.onTimeUpdate);
     this.player.addEventListener('loadedmetadata',this.onMetaData);
+    this.player.addEventListener('ended',this.onFinish);
     this.length = this.player.duration;
   }
   setPlayingState(state){
