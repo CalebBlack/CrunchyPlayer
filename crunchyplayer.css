@@ -1,0 +1,85 @@
+div.crunchyplayer {
+  display: inline-block;
+  font-size: 0;
+}
+div.crunchyplayer > * {
+  display: block;
+}
+div.crunchyplayer > video {
+  background-color: black;
+}
+div.crunchyplayer > div.controls {
+  width: calc(100% - 30px);
+  line-height: 30px;
+  padding: 0 15px;
+  background-color: #333333;
+  position: relative;
+}
+div.crunchyplayer > div.controls * {
+  display: inline-block;
+  vertical-align: middle;
+}
+div.crunchyplayer > div.controls div.play {
+  border-top: 8px solid transparent;
+  border-bottom: 8px solid transparent;
+  border-left: 12px solid white;
+}
+div.crunchyplayer > div.controls div.pause {
+  border-left: 4px solid white;
+  border-right: 4px solid white;
+  height: 16px;
+  width: 3px;
+}
+div.crunchyplayer > div.controls div.playglow {
+  transform: translateX(-1px);
+  margin: 0 -4px;
+  border-left: 4px solid #333333;
+  border-right: 4px solid #333333;
+  border-top: 2px solid #333333;
+  border-bottom: 2px solid #333333;
+  min-width: 13px;
+  width: min-content;
+  vertical-align: middle;
+  line-height: 0px;
+  border-radius: 2px;
+  background-color: #333333;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+div.crunchyplayer > div.controls div.playglow > * {
+  transform: translateX(1px);
+  transition: background-color 0.1s ease, border-color 0.1s ease;
+}
+div.crunchyplayer > div.controls div.playglow:hover {
+  background-color: #7b7b7b;
+  border-color: #7b7b7b;
+}
+div.crunchyplayer > div.controls div.progressbar {
+  position: relative;
+  margin-left: 15px;
+  min-width: calc(100% - 150px);
+  max-height:0;
+  border: 5px solid orange;
+  border-radius: 3px;
+}
+div.crunchyplayer > div.controls div.progressbar > div.timebar {
+  position: absolute;
+  left: -5px;
+  top: -8px;
+  display: inline;
+  max-width:0;
+  max-height:0;
+  border-bottom: 8px solid white;
+  border-top: 8px solid white;
+  border-left: 2px solid white;
+  border-right: 2px solid white;
+  border-radius: 10px;
+}
+div.crunchyplayer > div.controls p.time {
+  font-size: 16px;
+  margin: 0;
+  margin-left: 5px;
+  color: white;
+}
+div.crunchyplayer > div.controls p.time > span {
+  margin: 0 2px;
+}
