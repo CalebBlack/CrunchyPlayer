@@ -16,6 +16,7 @@ class CrunchyPlayer extends React.Component {
     this.updateTimeStamp = this.updateTimeStamp.bind(this);
     this.updateLengthStamp = this.updateLengthStamp.bind(this);
     this.seek = this.seek.bind(this);
+    this.toggle = this.toggle.bind(this);
   }
   getDimensionsStyling(width,height){
     var output = {};
@@ -25,6 +26,7 @@ class CrunchyPlayer extends React.Component {
     if (height) {
       output.height = height+'px';
     }
+    console.log(output);
     return output;
   }
   play(){
@@ -32,6 +34,16 @@ class CrunchyPlayer extends React.Component {
   }
   pause(){
     this.player.pause();
+  }
+  toggle(){
+    console.log(this.state);
+    if (this.state && this.state.playing !== undefined) {
+      if (this.state.playing === true) {
+        this.pause();
+      } else if (this.state.playing === false) {
+        this.play();
+      }
+    }
   }
   onPlay(){
     this.setPlayingState(true);
@@ -42,7 +54,7 @@ class CrunchyPlayer extends React.Component {
   render(){
     return (
       <div className='crunchyplayer'>
-        <video style={this.getDimensionsStyling(this.props.width,this.props.height)} ref={(ref)=>{this.player = ref}}>
+        <video onClick={this.toggle} style={this.getDimensionsStyling(this.props.width,this.props.height)} ref={(ref)=>{this.player = ref}}>
           <source src={this.props.source}/>
         </video>
         {this.renderControls()}
