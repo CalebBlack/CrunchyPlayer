@@ -42,7 +42,7 @@ class CrunchyPlayer extends React.Component {
   }
   render(){
     return (
-      <div className={'crunchyplayer'+(this.props.className ? " "+this.props.className : "")}>
+      <div id={this.props.id ? this.props.id : null} className={'crunchyplayer'+(this.props.className ? " "+this.props.className : "")}>
         <video autoPlay={this.props.autoplay || false} onClick={this.toggle} ref={(ref)=>{this.player = ref}}>
           <source src={this.props.source}/>
         </video>
