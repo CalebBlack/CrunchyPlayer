@@ -119,7 +119,7 @@ class CrunchyPlayer extends React.Component {
   }
   loadVideo(url){
     console.log(url);
-    if (url && typeof url === 'string' && this.source && this.player) {
+    if (url && typeof url === 'string' && this.source && this.source.attr("src") !== url && this.player) {
       this.source.setAttribute('src',url);
       this.player.load();
     }
