@@ -25,7 +25,6 @@ class CrunchyPlayer extends React.Component {
     if (height) {
       output.height = height+'px';
     }
-    console.log(output);
     return output;
   }
   play(){
