@@ -3,8 +3,8 @@ This video player was made with React.JS with the HTML5 video player to support 
 
 Valid Props:
 - autoplay
-- width
-- height
+- width (integer)
+- height (integer)
 
 Example Usage:
 ```
