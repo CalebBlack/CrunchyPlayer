@@ -19,16 +19,6 @@ class CrunchyPlayer extends React.Component {
     this.seek = this.seek.bind(this);
     this.toggle = this.toggle.bind(this);
   }
-  getDimensionsStyling(width,height){
-    var output = {};
-    if (width) {
-      output.width = width+'px';
-    }
-    if (height) {
-      output.height = height+'px';
-    }
-    return output;
-  }
   play(){
     this.player.play();
   }
@@ -53,7 +43,7 @@ class CrunchyPlayer extends React.Component {
   render(){
     return (
       <div className='crunchyplayer'>
-        <video autoPlay={this.props.autoplay || false} onClick={this.toggle} style={this.getDimensionsStyling(this.props.width,this.props.height)} ref={(ref)=>{this.player = ref}}>
+        <video autoPlay={this.props.autoplay || false} onClick={this.toggle} ref={(ref)=>{this.player = ref}}>
           <source src={this.props.source}/>
         </video>
         {this.renderControls()}
