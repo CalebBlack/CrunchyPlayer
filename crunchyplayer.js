@@ -46,6 +46,8 @@ class CrunchyPlayer extends React.Component {
       }
     }
   }
+  onRightClick(){
+  }
   onPlay(){
     this.setPlayingState(true);
   }
@@ -54,7 +56,7 @@ class CrunchyPlayer extends React.Component {
   }
   render(){
     return (
-      <div id={this.props.id ? this.props.id : null} className={'crunchyplayer'+(this.props.className ? " "+this.props.className : "")}>
+      <div onContextMenu={(event)=>{event.preventDefault();this.onRightClick();}} id={this.props.id ? this.props.id : null} className={'crunchyplayer'+(this.props.className ? " "+this.props.className : "")}>
         <video autoPlay={this.props.autostart || false} onClick={this.toggle} ref={(ref)=>{this.player = ref}}>
           <source ref={(source)=>{this.source = source;}} src={this.props.source}/>
         </video>
@@ -63,6 +65,7 @@ class CrunchyPlayer extends React.Component {
       </div>
       );
   }
+  on
   renderControls(){
     return (
       <div className='controls'>
@@ -98,7 +101,7 @@ class CrunchyPlayer extends React.Component {
     if (position > 1) {
       position = 1;
     }
-    this.timebar.style.left = Math.round(position* 10000)/100 + '%';
+    this.timebar.style.left = Math.min(Math.round(position* 10000)/100,99.5) + '%';
     this.player.currentTime = this.length * position;
     this.updateTimeStamp();
   }
@@ -139,7 +142,7 @@ class CrunchyPlayer extends React.Component {
   onTimeUpdate(event){
     this.updateTimeStamp();
     if (this.progressbar && this.timebar && this.length && this.time) {
-      this.timebar.style.left = Math.round(this.time/this.length* 10000)/100 + '%';
+      this.timebar.style.left = Math.min(Math.round(this.time/this.length* 10000)/100,99.5) + '%';
     }
   }
   componentDidMount(){
