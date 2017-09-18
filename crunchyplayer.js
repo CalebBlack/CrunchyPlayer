@@ -98,7 +98,7 @@ class CrunchyPlayer extends React.Component {
     if (position > 1) {
       position = 1;
     }
-    this.timebar.style.left = Math.round(position* 100) + '%';
+    this.timebar.style.left = Math.round(position* 10000)/100 + '%';
     this.player.currentTime = this.length * position;
     this.updateTimeStamp();
   }
@@ -139,7 +139,7 @@ class CrunchyPlayer extends React.Component {
   onTimeUpdate(event){
     this.updateTimeStamp();
     if (this.progressbar && this.timebar && this.length && this.time) {
-      this.timebar.style.left = Math.round(this.time/this.length* 100) + '%';
+      this.timebar.style.left = Math.round(this.time/this.length* 10000)/100 + '%';
     }
   }
   componentDidMount(){
