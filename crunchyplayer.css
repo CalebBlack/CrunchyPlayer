@@ -75,6 +75,8 @@ div.crunchyplayer > div.controls div.progressbar {
   max-height:0;
   border: 5px solid orange;
   border-radius: 3px;
+  border-left-style: none;
+  border-right-style: none;
 }
 
 div.crunchyplayer > div.controls div.progressbar:hover > div.timebar {
@@ -90,7 +92,7 @@ div.crunchyplayer > div.controls div.progressbar > div.timebar {
   opacity: 0.5;
   transition: opacity 0.2s ease;
   position: absolute;
-  left: -5px;
+  left: 0px;
   top: -8px;
   display: inline;
   max-width:0;
