@@ -168,4 +168,9 @@ function getFormattedTime(secondsIn) {
   }
   return minutes+":"+seconds;
 }
-export default CrunchyPlayer;
+
+let target = document.getElementById('root');
+
+ReactDOM.render(
+ <CrunchyPlayer/>, root
+)
