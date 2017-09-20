@@ -21,6 +21,7 @@ div.crunchyplayer > div.controlsspacing {
   width: 100%;
 }
 div.crunchyplayer > div.controls {
+  text-align: left
   position: absolute !important;
   bottom: 0;
   left: 0;
