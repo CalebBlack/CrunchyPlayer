@@ -169,5 +169,5 @@ function getFormattedTime(secondsIn) {
 let target = document.getElementById('root');
 
 ReactDOM.render(
- <CrunchyPlayer/>, root
+ <CrunchyPlayer source='https://drive.google.com/uc?export=download&id=0B5RU9mmQF_DvQ0pyR3BlV1AwMVE'/>, root
 )
