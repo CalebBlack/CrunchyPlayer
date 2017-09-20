@@ -1,6 +1,3 @@
-import React from 'react';
-import "./crunchyplayer.css";
-
 class CrunchyPlayer extends React.Component {
   constructor(){
     super();
