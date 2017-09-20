@@ -70,6 +70,7 @@ div.crunchyplayer > div.controls div.playglow:hover {
   border-color: #7b7b7b;
 }
 div.crunchyplayer > div.controls div.progressbar {
+  cursor: pointer;
   position: relative;
   margin-left: 15px;
   min-width: calc(100% - 200px);
@@ -81,6 +82,7 @@ div.crunchyplayer > div.controls div.progressbar {
 }
 
 div.crunchyplayer > div.controls div.progressbar:hover > div.timebar {
+  cursor: pointer;
   opacity: 0.8;
 }
 div.crunchyplayer > div.controls div.progressbar:active > div.timebar {
