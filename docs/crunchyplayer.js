@@ -62,7 +62,6 @@ class CrunchyPlayer extends React.Component {
       </div>
       );
   }
-  on
   renderControls(){
     return (
       <div className='controls'>
@@ -91,7 +90,7 @@ class CrunchyPlayer extends React.Component {
     );
   }
   seek(event){
-    var position = (event.pageX - this.progressbar.offsetLeft - 10) / this.progressbar.offsetWidth;
+    var position = (event.pageX - this.progressbar.offsetLeft) / this.progressbar.offsetWidth;
     if (position < 0) {
       position = 0;
     }
