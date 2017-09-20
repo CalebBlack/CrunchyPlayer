@@ -36,11 +36,13 @@ div.crunchyplayer > div.controls * {
   vertical-align: middle;
 }
 div.crunchyplayer > div.controls div.play {
+  cursor: pointer;
   border-top: 8px solid transparent;
   border-bottom: 8px solid transparent;
   border-left: 12px solid white;
 }
 div.crunchyplayer > div.controls div.pause {
+  cursor: pointer;
   border-left: 4px solid white;
   border-right: 4px solid white;
   height: 16px;
@@ -119,6 +121,7 @@ div.crunchyplayer > div.controls p.time > span {
   margin: 0 5px;
 }
 div.crunchyplayer > div.controls div.autoplay {
+  cursor: pointer;
   position: absolute;
   border: 10px solid white;
   border-radius: 100px;
