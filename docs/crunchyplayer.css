@@ -21,6 +21,7 @@ div.crunchyplayer > div.controlsspacing {
   width: 100%;
 }
 div.crunchyplayer > div.controls {
+  text-align: left;
   position: absolute !important;
   bottom: 0;
   left: 0;
@@ -35,11 +36,13 @@ div.crunchyplayer > div.controls * {
   vertical-align: middle;
 }
 div.crunchyplayer > div.controls div.play {
+  cursor: pointer;
   border-top: 8px solid transparent;
   border-bottom: 8px solid transparent;
   border-left: 12px solid white;
 }
 div.crunchyplayer > div.controls div.pause {
+  cursor: pointer;
   border-left: 4px solid white;
   border-right: 4px solid white;
   height: 16px;
@@ -69,6 +72,7 @@ div.crunchyplayer > div.controls div.playglow:hover {
   border-color: #7b7b7b;
 }
 div.crunchyplayer > div.controls div.progressbar {
+  cursor: pointer;
   position: relative;
   margin-left: 15px;
   min-width: calc(100% - 200px);
@@ -80,6 +84,7 @@ div.crunchyplayer > div.controls div.progressbar {
 }
 
 div.crunchyplayer > div.controls div.progressbar:hover > div.timebar {
+  cursor: pointer;
   opacity: 0.8;
 }
 div.crunchyplayer > div.controls div.progressbar:active > div.timebar {
@@ -116,6 +121,7 @@ div.crunchyplayer > div.controls p.time > span {
   margin: 0 5px;
 }
 div.crunchyplayer > div.controls div.autoplay {
+  cursor: pointer;
   position: absolute;
   border: 10px solid white;
   border-radius: 100px;
